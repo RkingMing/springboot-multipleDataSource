@@ -1,0 +1,17 @@
+/.idea/
+/transaction-logs/
+/multipledatasources2/transaction-logs/
+/multipledatasources3/transaction-logs/
+/multipledatasources4/transaction-logs/
+/multipledatasources4/.mvn/
+/multipledatasources3/.mvn/
+/multipledatasources2/.mvn/
+/multipledatasources2/mvnw.cmd
+/multipledatasources2/mvnw
+/multipledatasources2/.gitignore
+/multipledatasources3/.gitignore
+/multipledatasources3/mvnw.cmd
+/multipledatasources3/mvnw
+/multipledatasources4/.gitignore
+/multipledatasources4/mvnw
+/multipledatasources4/mvnw.cmd
