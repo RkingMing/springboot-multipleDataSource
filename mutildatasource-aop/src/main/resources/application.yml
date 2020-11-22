@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    primary:
+      driverClassName: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://192.168.189.129:3306/db1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+    local:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://192.168.189.129:3306/db2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
