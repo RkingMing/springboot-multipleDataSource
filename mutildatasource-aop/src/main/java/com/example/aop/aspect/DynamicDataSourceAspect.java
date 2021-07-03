@@ -5,9 +5,7 @@ import com.example.aop.common.ContextConst;
 import com.example.aop.config.DataSourceContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -54,9 +52,8 @@ public class DynamicDataSourceAspect {
         DataSourceContextHolder.clearDataSource();
     }*/
 
-    @Pointcut("execution(* com.example.aop.service..*.*(..))")
+    @Pointcut("execution(* com.example.aop.service.UserServiceImpl.save*(..))")
     public void dataSourcePointCut() {
-
     }
 
     @Around("dataSourcePointCut()")
@@ -71,12 +68,35 @@ public class DynamicDataSourceAspect {
             DataSourceContextHolder.setDataSource(ds.value());
             log.debug("set datasource is {} " , ds.value());
         }
-
         try {
+            //执行目标方法
             return point.proceed();
         } finally {
             DataSourceContextHolder.clearDataSource();
             log.debug("clean datasource");
         }
     }
+
+    @Pointcut("execution(* com.example.aop.service.UserServiceImpl.test(..))")
+    public void test() {
+    }
+
+    @Before("test()")
+    public void before(){
+        System.out.println("前置通知....");
+    }
+    @AfterReturning("test()")
+    public void afterReturning(){
+        System.out.println("后置通知......");
+    }
+    @AfterThrowing("test()")
+    public void afterThrowing(){
+        System.out.println("异常通知.......");
+    }
+    @After("test()")
+    public void after(){
+        System.out.println("最终通知........");
+    }
+
+
 }

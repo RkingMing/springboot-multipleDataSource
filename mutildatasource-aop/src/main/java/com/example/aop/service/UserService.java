@@ -11,4 +11,5 @@ import com.example.aop.common.entity.User;
 public interface UserService {
     User saveToDB1(User user);
     User saveToDB2(User user);
+    void test();
 }

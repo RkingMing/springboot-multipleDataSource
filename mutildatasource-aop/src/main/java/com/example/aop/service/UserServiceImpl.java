@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+
 /**
  * description:
  *
@@ -35,5 +37,32 @@ public class UserServiceImpl implements UserService {
         saveToDB1(user1);
         int i = 1/0;
         return userRespository.save(user);
+    }
+    @Override
+    public void test(){
+        int i = 1/0;
+        System.out.println("run.......");
+    }
+
+    public static void main(String[] args) {
+        BigDecimal bignum1 = new BigDecimal("10");
+        BigDecimal bignum2 = new BigDecimal("3");
+        BigDecimal bignum3 = null;
+
+//加法
+        bignum3 =  bignum1.add(bignum2);
+        System.out.println("和 是：" + bignum3);
+
+//减法
+        bignum3 = bignum1.subtract(bignum2);
+        System.out.println("差  是：" + bignum3);
+
+//乘法
+        bignum3 = bignum1.multiply(bignum2);
+        System.out.println("积  是：" + bignum3);
+
+//除法
+        bignum3 = bignum1.divide(bignum2,BigDecimal.ROUND_UNNECESSARY);
+        System.out.println("商  是：" + bignum3);
     }
 }
